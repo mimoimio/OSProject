@@ -246,9 +246,118 @@ README.md  images
 ```
 
 6. Run the command **ls -asl** . ***(1 mark)*** __Fill answer here__.
+```
+total 40
+ 4 drwxrwxrwx+ 4 codespace root       4096 Jan 21 02:58 .
+ 4 drwxr-xrwx+ 5 codespace root       4096 Jan 19 11:21 ..
+ 4 drwxrwxrwx+ 9 codespace root       4096 Jan 21 02:58 .git
+24 -rw-rw-rw-  1 codespace codespace 22407 Jan 21 02:58 README.md
+ 4 drwxrwxrwx+ 2 codespace root       4096 Jan 19 11:21 images
+```
 7. Run the command **free -h** . ***(1 mark)*** __Fill answer here__.
+```
+              total        used        free      shared  buff/cache   available
+Mem:          7.7Gi       2.3Gi       277Mi        63Mi       5.2Gi       5.1Gi
+Swap:            0B          0B          0B
+```
 8. Run the command **cat /proc/cpuinfo** . ***(1 mark)*** __Fill answer here__.
+```
+processor       : 0
+vendor_id       : AuthenticAMD
+cpu family      : 25
+model           : 1
+model name      : AMD EPYC 7763 64-Core Processor
+stepping        : 1
+microcode       : 0xffffffff
+cpu MHz         : 2679.585
+cache size      : 512 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 1
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext invpcid_single vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm
+bugs            : sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips        : 4890.86
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 48 bits physical, 48 bits virtual
+power management:
+
+processor       : 1
+vendor_id       : AuthenticAMD
+cpu family      : 25
+model           : 1
+model name      : AMD EPYC 7763 64-Core Processor
+stepping        : 1
+microcode       : 0xffffffff
+cpu MHz         : 2693.439
+cache size      : 512 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 1
+apicid          : 1
+initial apicid  : 1
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext invpcid_single vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm
+bugs            : sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips        : 4890.86
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 48 bits physical, 48 bits virtual
+power management:
+```
 9. Run the command **top** and type **q** to quit. ***(1 mark)*** __Fill answer here__.
+```
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                     
+  12107 codespa+  20   0   41.5g 322120  50944 S   2.0   4.0   0:37.82 node                                                        
+  14018 codespa+  20   0   41.5g 332548  50944 S   2.0   4.1   0:45.31 node                                                        
+  11190 codespa+  20   0   41.5g 323168  50816 S   1.3   4.0   0:38.23 node                                                        
+    584 codespa+  20   0   11.3g 107372  47616 S   0.3   1.3   0:10.10 node                                                        
+   1077 codespa+  20   0   11.2g  73216  44672 S   0.3   0.9   0:05.11 node                                                        
+   2176 root      20   0 1798848  48888  30720 S   0.3   0.6   0:02.20 containerd                                                  
+  11165 codespa+  20   0   11.2g  55988  43648 S   0.3   0.7   0:00.34 node                                                        
+      1 codespa+  20   0    1136    640    640 S   0.0   0.0   0:00.12 docker-init                                                 
+      7 codespa+  20   0    7236   1792   1792 S   0.0   0.0   0:00.02 sleep                                                       
+     35 root      20   0   12196   3480   2560 S   0.0   0.0   0:00.00 sshd                                                        
+    348 codespa+  20   0    2616   1536   1536 S   0.0   0.0   0:00.00 sh                                                          
+    374 root      20   0    2616   1536   1536 S   0.0   0.0   0:00.01 sh                                                          
+    575 codespa+  20   0    2624   1664   1664 S   0.0   0.0   0:00.01 sh                                                          
+   1089 codespa+  20   0   16676  11648   3456 S   0.0   0.1   0:00.14 bash                                                        
+   1539 codespa+  20   0    2616   1408   1408 S   0.0   0.0   0:00.01 sh                                                          
+   1587 root      20   0    2616   1664   1664 S   0.0   0.0   0:00.01 sh                                                          
+   2169 root      20   0 1983260  78744  52480 S   0.0   1.0   0:00.31 dockerd                                                     
+  10909 codespa+  20   0    2616   1536   1536 S   0.0   0.0   0:00.01 sh                                                          
+  10966 root      20   0    2616   1536   1536 S   0.0   0.0   0:00.00 sh                                                          
+  11211 codespa+  20   0  993924  54224  41088 S   0.0   0.7   0:00.25 node                                                        
+  11312 codespa+  20   0    2616   1536   1536 S   0.0   0.0   0:00.01 sh                                                          
+  11363 root      20   0    2616   1536   1536 S   0.0   0.0   0:00.00 sh                                                          
+  11771 codespa+  20   0    2616   1408   1408 S   0.0   0.0   0:00.00 sh                                                          
+  11825 root      20   0    2616   1408   1408 S   0.0   0.0   0:00.00 sh                                                          
+  12094 codespa+  20   0   11.2g  58592  43776 S   0.0   0.7   0:00.33 node                                                        
+  12143 codespa+  20   0  993924  52140  41088 S   0.0   0.6   0:00.25 node                                                        
+  12245 codespa+  20   0    2616   1536   1536 S   0.0   0.0   0:00.01 sh                                                          
+  12297 root      20   0    2616   1408   1408 S   0.0   0.0   0:00.01 sh                                                          
+  13651 codespa+  20   0    2616   1536   1536 S   0.0   0.0   0:00.00 sh                                                          
+  13708 root      20   0    2616   1408   1408 S   0.0   0.0   0:00.00 sh                                                          
+  14029 codespa+  20   0   11.2g  58276  43776 S   0.0   0.7   0:00.33 node                                                        
+  14091 codespa+  20   0 1007188  66796  41728 S   0.0   0.8   0:02.22 node                                                        
+  14195 codespa+  20   0    2616   1664   1664 S   0.0   0.0   0:00.01 sh                                                          
+  14247 root      20   0    2616   1536   1536 S   0.0   0.0   0:00.00 sh                                                          
+  18454 codespa+  20   0   16808  11648   3328 S   0.0   0.1   0:00.21 bash                                                        
+  52305 codespa+  20   0   10916   3712   3200 R   0.0   0.0   0:00.00 top                    
+```
 10. Run the command **uname -a**. ***(1 mark)*** __Fill answer here__.
 11. What is the available free memory in the system. ***(1 mark)*** 642 Mi.
 12. What is the available disk space mounted on /workspace. ***(1 mark)*** 5.9 Gi.
@@ -257,12 +366,12 @@ README.md  images
 15. What is the TLB size of the Virtual CPU. ***(1 mark)*** Processor: 0 = 250 4K pages, Processor:1 = 2560 4K pages.
 16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** Processor:0 = 2912.859 MHz, Processor:1 = 2881.505 MHz.
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** 
-``` 
-PID USER                                                                            
-14140 codespa+ 
-```.
+``` PID USER                                                                            
+  14140 codespa+ ```.
+```Linux codespaces-7af9bd 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux```
 
 ## Running your own container instance.
+
 
 1. At the terminal, run a linux instance. By typing the following command. 
 ```
