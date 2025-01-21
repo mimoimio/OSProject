@@ -250,13 +250,15 @@ README.md  images
 8. Run the command **cat /proc/cpuinfo** . ***(1 mark)*** __Fill answer here__.
 9. Run the command **top** and type **q** to quit. ***(1 mark)*** __Fill answer here__.
 10. Run the command **uname -a**. ***(1 mark)*** __Fill answer here__.
-11. What is the available free memory in the system. ***(1 mark)*** __Fill answer here__.
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** __Fill answer here__.
-13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Fill answer here__.
-14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** __Fill answer here__.
-15. What is the TLB size of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
-16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
-17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __Fill answer here__.
+11. What is the available free memory in the system. ***(1 mark)*** 642 Mi.
+12. What is the available disk space mounted on /workspace. ***(1 mark)*** 5.9 Gi.
+13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** Linux codespaces-8b16c7 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux.
+14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** ls = list files and directory in a repository, ls -asl = does the same action as ls command, but providing a detailed listing such as file permissions, size and last modified time.
+15. What is the TLB size of the Virtual CPU. ***(1 mark)*** Processor: 0 = 250 4K pages, Processor:1 = 2560 4K pages.
+16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** Processor:0 = 2912.859 MHz, Processor:1 = 2881.505 MHz.
+17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** 
+``` PID USER                                                                            
+  14140 codespa+ ```.
 
 ## Running your own container instance.
 
