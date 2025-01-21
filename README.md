@@ -265,6 +265,19 @@ README.md  images
 docker pull debian
 docker run --detach -it debian
 ```
+
+```
+@nuttylah ➜ /workspaces/OSProject (main) $ docker pull debian
+Using default tag: latest
+latest: Pulling from library/debian
+fd0410a2d1ae: Pull complete 
+Digest: sha256:321341744acb788e251ebd374aecc1a42d60ce65da7bd4ee9207ff6be6686a62
+Status: Downloaded newer image for debian:latest
+docker.io/library/debian:latest
+
+@nuttylah ➜ /workspaces/OSProject (main) $ docker run --detach -it debian
+b3cfca522216671a8e288c11067dad1241a6d1a2132d98abdbe9a728eaac1149
+```
 2. This will run the debian container. To check if the debian container is running, type
 ```bash
 @joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
@@ -272,9 +285,19 @@ CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAME
 f65be1987f84   debian    "bash"    4 minutes ago   Up 4 minutes             romantic_jackson
 ```
 
+```
+@nuttylah ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+b3cfca522216   debian    "bash"    46 seconds ago   Up 45 seconds             flamboyant_mahavira
+```
+
 3. Keep note of the name used by your container, this is usually given random names unless you specify your own name. Now run a bash command on the container. Make sure you use the name of your container instead of the one shown here. 
 ```bash
 docker exec -i -t romantic_jackson /bin/bash
+```
+
+```
+@nuttylah ➜ /workspaces/OSProject (main) $ docker exec -i -t  flamboyant_mahavira /bin/bash
 ```
 
 4. Create a file on the container. First you must make sure you are in the bash command prompt of the container. The container is new, and does not have any software other than the debian OS. To create a new file, you will need an editor installed. In the bash shell of the container, run the package manager apt-get to install nano text editor. 
