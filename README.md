@@ -489,17 +489,36 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 @joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
 ```
-
+```
+@nuttylah ➜ /workspaces/OSProject (main) $ docker stop flamboyant_mahavira
+flamboyant_mahavira
+@nuttylah ➜ /workspaces/OSProject (main) $ 
+@nuttylah ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
+b3cfca522216   debian    "bash"    13 minutes ago   Exited (137) 10 seconds ago             flamboyant_mahavira
+@nuttylah ➜ /workspaces/OSProject (main) $ docker rm flamboyant_mahavira
+flamboyant_mahavira
+@nuttylah ➜ /workspaces/OSProject (main) $ ^C
+@nuttylah ➜ /workspaces/OSProject (main) $ mkdir myroot
+@nuttylah ➜ /workspaces/OSProject (main) $ cd myroot/
+@nuttylah ➜ /workspaces/OSProject/myroot (main) $ pwd
+/workspaces/OSProject/myroot
+@nuttylah ➜ /workspaces/OSProject/myroot (main) $  docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+897d2ba20d5b5358d731cc292d74ddf9ddc50c97d0878ce4fdd66b85be9d692d
+```
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** 
+ The files created in the container will likely be owned by the root user and group unless a different user is specified during container execution.
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+
+Yes, you can change the ownership of the files on the host machine to the codespace user.
+```@nuttylah ➜ /workspaces/OSProject (main) $ sudo chown -R codespace:codespace myroot```
 
 ## You are on your own, create your own static webpage
 
@@ -525,9 +544,13 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** 
+The permission is root
+2. What port is the apache web server running. ***(1 mark)*** 
+80
+3. What port is open for http protocol on the host machine? ***(1 mark)*** 
+8080
+ <img src="./images/webpage.png" width="70%">
 
 ## Create SUB Networks
 
@@ -546,12 +569,33 @@ docker run -itd --net rednet --name c2 busybox sh
 ```
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Fill answer here__.
-2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Fill answer here__.
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Fill answer here__.
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
-5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-
+1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)***
+To assign a custom name for the container in the network, instead of a long random string.
+2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** 
+```
+NETWORK ID     NAME      DRIVER    SCOPE
+4e5112ec526f   bluenet   bridge    local
+dff8d0a8ea26   bridge    bridge    local
+fe951861ec23   host      host      local
+64289e820fc2   none      null      local
+6078960510d9   rednet    bridge    local
+```
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)***
+c1: 
+                    "Gateway": "172.18.0.1",
+c2:
+                    "Gateway": "172.19.0.1",
+4. What is the network address for the running container c1 and c2? ***(1 mark)***
+c1:
+                    "IPAddress": "172.18.0.2",
+c2:
+                    "IPAddress": "172.19.0.2",
+5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** 
+```
+No,
+@nuttylah ➜ /workspaces/OSProject (main) $ docker exec c1 ping c2
+ping: bad address 'c2'
+```
 ## Bridging two SUB Networks
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
 ```
@@ -562,8 +606,21 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)***
+Yes,
+```
+@nuttylah ➜ /workspaces/OSProject (main) $ docker exec c1 ping c2
+PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=0.118 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.049 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.056 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.044 ms
+64 bytes from 172.20.0.3: seq=4 ttl=64 time=0.064 ms
+64 bytes from 172.20.0.3: seq=5 ttl=64 time=0.047 ms
+64 bytes from 172.20.0.3: seq=6 ttl=64 time=0.057 ms
+```
+2. What is different from the previous ping in the section above? ***(1 mark)***
+Previously, the two networks are not bridged, or routed. Now, bridgenet has connected them two, resulting in them able to ping
 
 ## Intermediate Level (10 marks bonus)
 
@@ -706,8 +763,10 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** 
+Server Error. Nodejs container and mysqlcontainer is not connected.
+2. Show the instruction needed to make this work. ***(1 mark)
+make a bridgenet to network between container and network
 
 
 
