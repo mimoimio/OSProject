@@ -65,7 +65,7 @@ Ubuntu
 
 4 cores, 8 GB RAM, 32 GB disk 8 cores, 16 GB RAM, 64 GB disk
 
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** To save to the repository.
 
 ## Exploring the Terminal
 
