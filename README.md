@@ -257,8 +257,10 @@ README.md  images
 15. What is the TLB size of the Virtual CPU. ***(1 mark)*** Processor: 0 = 250 4K pages, Processor:1 = 2560 4K pages.
 16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** Processor:0 = 2912.859 MHz, Processor:1 = 2881.505 MHz.
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** 
-``` PID USER                                                                            
-  14140 codespa+ ```.
+``` 
+PID USER                                                                            
+14140 codespa+ 
+```.
 
 ## Running your own container instance.
 
