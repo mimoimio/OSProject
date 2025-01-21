@@ -437,6 +437,13 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 @joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
 ```
+```
+@nuttylah ➜ /workspaces/OSProject (main) $  docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+b3cfca522216   debian    "bash"    10 minutes ago   Up 10 minutes             flamboyant_mahavira
+
+@nuttylah ➜ /workspaces/OSProject (main) $ docker restart flamboyant_mahavira
+```
 
 7. Stop the container and delete the container. What happened to your helloworld.txt?
 
@@ -450,10 +457,22 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 @joeynor ➜ /workspaces/OSProject (main) $ docker rm romantic_jackson
 ```
 
+```
+@nuttylah ➜ /workspaces/OSProject (main) $ docker stop flamboyant_mahavira
+flamboyant_mahavira
+@nuttylah ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
+b3cfca522216   debian    "bash"    13 minutes ago   Exited (137) 10 seconds ago             flamboyant_mahavira
+@nuttylah ➜ /workspaces/OSProject (main) $ docker rm flamboyant_mahavira
+flamboyant_mahavira
+```
+
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** 
+No, files in the container are not persistent because the container's filesystem is temporary and gets deleted when the container is removed. To keep files, use Docker volumes.
+2. Can we run two, or three instances of debian linux? . ***(1 mark)***
+Yes, you can run multiple instances of Debian Linux using Docker. Each instance runs in its own container
 
 ## Running your own container with persistent storage
 
