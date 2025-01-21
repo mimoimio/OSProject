@@ -65,7 +65,14 @@ Ubuntu
 
 4 cores, 8 GB RAM, 32 GB disk 8 cores, 16 GB RAM, 64 GB disk
 
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** To save to the repository.
+3. Why must we commit and sync our current work on source control? ***(1 mark)***  
+
+- Preserves Work History
+Creates a record of changes which allow us to track and revert to previous versions if needed.
+- Facilitates Collaboration
+Ensures that changes are shared with teammatesthat can prevent conflicts and allow others to build on work together. 
+- Safeguards Against Data Loss 
+Protects work from being lost due to local system failures by storing it in a remote repository.
 
 ## Exploring the Terminal
 
